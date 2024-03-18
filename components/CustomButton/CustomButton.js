@@ -24,7 +24,7 @@ const buttonStyles = StyleSheet.create({
         paddingHorizontal: 20,
         marginVertical: 10,
         alignItems: 'center',
-        borderRadius: 25, // קצוות מעוגלים יותר
+        borderRadius: 15, // קצוות מעוגלים יותר
         flexDirection: 'row', 
         justifyContent: 'center', 
     },
