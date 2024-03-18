@@ -2,11 +2,12 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import HomeScreen from './Screens/HomeScreen';
 import { StatusBar } from 'expo-status-bar';
+import FAQScreen from './Screens/fqaScreen/faqScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <HomeScreen />
+      <FAQScreen />
       <StatusBar style="auto" />
     </View>
   );
