@@ -1,11 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from 'react-native';
 import CustomButton from "../../components/CustomButton";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
 
-    const goToChetBox = () => console.warn("chet box");
+    const goToChetBox = () => navigation.navigate("faqScreen");
     const goToQA = () => console.warn("QA");
+    const navigation =useNavigation();
 
     return (
         <View style={styles.container}>
