@@ -50,7 +50,7 @@ name: 'עו"ד דוד גולן',
 role: 'דיני תעבורה',
 phone: '03-628-7500',
 imageUrl: 'https://lh3.googleusercontent.com/p/AF1QipNKMaTxXKPzgdD3p3UspEP-Kb0sozfuyG5a4Bqe=s1360-w1360-h1020',
-},
+} ,
 {
 id: '8',
 name: 'עו"ד יוסי יורוביצקי ',
