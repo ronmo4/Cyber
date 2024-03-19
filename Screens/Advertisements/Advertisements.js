@@ -76,7 +76,7 @@ const LawyerItem = ({ lawyer }) => (
 const AdvertisementScreen = () => {
   return (
     <View style={{ flex: 1 }}>
-    <Text style={styles.title}> עורכי הדין בתחום התעבורה:  </Text>
+    <Text style={styles.title}>עורכי הדין בתחום התעבורה</Text>
     <FlatList showsVerticalScrollIndicator={false}
       data={lawyers}
       keyExtractor={(item) => item.id}
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     marginTop:10
   },
   title:{
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop:80,

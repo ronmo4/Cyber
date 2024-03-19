@@ -25,7 +25,7 @@ const ChatbotScreen = () => {
   const [chat, setChat] = useState(null); // State to hold chat instance
   const [chatHistory, setChatHistory] = useState([]); // State to hold chat history
   const scrollViewRef = useRef();
-
+  const [isloading, setIsLoading] = useState(false);
   useEffect(() => {
     const initializeChat = async () => {
       const genAI = new GoogleGenerativeAI(API_KEY);
@@ -102,6 +102,7 @@ const ChatbotScreen = () => {
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <Text style={styles.title}>צ'אט עם שמעון</Text>
+      <View style={styles.line}></View>
       <ScrollView
         ref={scrollViewRef}
         contentContainerStyle={styles.chatContainer}
@@ -153,35 +154,44 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 10,
     textAlign: 'center',
+    marginTop: 25,
+  },
+  line: {
+    borderBottomColor: '#ccc',
+    borderBottomWidth: 1,
+    marginVertical: 10,
   },
   chatContainer: {
     flexGrow: 1,
+    marginTop: 10,
+    marginBottom: 20,
   },
   userMessageContainer: {
     alignSelf: 'flex-end',
     marginVertical: 5,
     maxWidth: '80%',
-    borderRadius: 8,
+    borderRadius: 10,
+    backgroundColor: '#DCF8C6',
+    padding: 10,
+    borderBottomRightRadius: 0, // Curved border at bottom right for user message
   },
   botMessageContainer: {
     alignSelf: 'flex-start',
     marginVertical: 5,
     maxWidth: '80%',
+    borderRadius: 10,
+    backgroundColor: '#E5E5EA',
+    padding: 10,
+    borderBottomLeftRadius: 0, // Curved border at bottom left for bot message
   },
   userMessage: {
-    backgroundColor: '#0066ff',
-    color: '#ffffff',
-    padding: 10,
-    borderRadius: 10,
+    color: '#000',
     textAlign: 'right',
   },
   botMessage: {
-    backgroundColor: '#f0f0f0',
-    color: '#000000',
-    padding: 10,
-    borderRadius: 10,
+    color: '#000',
     textAlign: 'left',
   },
   inputContainer: {
@@ -213,5 +223,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+
 
 export default ChatbotScreen;
