@@ -1,17 +1,19 @@
-import React from "react";
+import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import CustomButton from "../../components/CustomButton";
-import { useNavigation } from "@react-navigation/native";
+import CustomButton from '../../components/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
 // Corrected import statement
 import homeImageCyber from "../../assets/homeImageCyber.png";
 
 const HomeScreen = () => {
-    const navigation = useNavigation();
 
-    const goToQA = () => navigation.navigate("FAQ");
-    const goToChetBox = () => console.warn("chatbox");
-    const goToADV = () => navigation.navigate("ADV");
+const navigation = useNavigation();
+
+
+  const goToQA = () => navigation.navigate('FAQ');
+  const goToChatbot = () => navigation.navigate('Chatbot');
+  const goToADV = () => navigation.navigate('ADV');
 
     return (
         <View style={styles.container}>
