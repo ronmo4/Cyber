@@ -17,7 +17,7 @@ const {
 } = require('@google/generative-ai');
 
 const MODEL_NAME = 'gemini-1.0-pro';
-const API_KEY = '';
+const API_KEY = 'AIzaSyC-LGfe1ktetDxnvsYctGuwlwxtsUP7uws';
 
 const ChatbotScreen = () => {
   const [message, setMessage] = useState('');
@@ -80,19 +80,31 @@ const ChatbotScreen = () => {
 
   const sendMessageOf = async () => {
     if (!chat) return; // Ensure chat instance is available
-    const result = await chat.sendMessage(message);
-    const response = result.response;
-
-    // Update chat history with user's question and bot's response
+  
+    // Generate a temporary ID for the "typing..." message
+    const tempId = Date.now();
+  
+    // Add message to chat history and a temporary "typing..." response
     setChatHistory((prevHistory) => [
       ...prevHistory,
-      { role: 'user', text: message },
-      { role: 'bot', text: response.text() },
+      { role: 'user', text: message, id: tempId - 1 },
+      { role: 'bot', text: '...', id: tempId },
     ]);
+  
+    setMessage(''); 
 
-    setResponse(response.text());
-    setMessage(''); // Clear message input after sending
+    const result = await chat.sendMessage(message);
+    const response = result.response;
+  
+    // Update chat history: replace "typing..." with actual response
+    setChatHistory((prevHistory) =>
+      prevHistory.map((msg) =>
+        msg.id === tempId ? { ...msg, text: response.text() } : msg
+      )
+    );
+  
   };
+  
 
   // Function to focus on the latest message
   const focusOnLatestMessage = () => {
