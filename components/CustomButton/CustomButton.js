@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, Pressable } from "react-native";
+import { StyleSheet, Text, Pressable, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const CustomButton = ({ onPress, text, bgColor, fgColor, iconName }) => {
@@ -8,32 +8,40 @@ const CustomButton = ({ onPress, text, bgColor, fgColor, iconName }) => {
             buttonStyles.container,
             bgColor ? { backgroundColor: bgColor } : {}
         ]}>
-            {iconName && <Icon name={iconName} size={24} color={fgColor || 'white'} style={buttonStyles.icon} />}
-            <Text style={[
-                buttonStyles.text,
-                fgColor ? { color: fgColor } : {},
-            ]}>{text}</Text>
+            <View style={buttonStyles.content}>
+                <Text numberOfLines={1} style={[
+                    buttonStyles.text,
+                    fgColor ? { color: fgColor } : {},
+                ]}>{text}</Text>
+                {iconName && <Icon name={iconName} size={24} color={fgColor || 'white'} style={buttonStyles.icon} />}
+            </View>
         </Pressable>
     );
 }
 
 const buttonStyles = StyleSheet.create({
     container: {
-        width: '80%', // שינוי רוחב הכפתור
+        width: '80%',
         paddingVertical: 15,
         paddingHorizontal: 20,
         marginVertical: 10,
         alignItems: 'center',
-        borderRadius: 15, // קצוות מעוגלים יותר
-        flexDirection: 'row', 
-        justifyContent: 'center', 
+        borderRadius: 15,
+        justifyContent: 'center',
+    },
+    content: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     text: {
+        flex: 1, // Take up remaining space
+        minWidth: 0, // Allow text to shrink
         fontWeight: 'bold',
-        color: 'white', // שינוי צבע טקסט דיפולטיבי
+        color: 'white',
+        textAlign: 'center',
     },
     icon: {
-        marginRight: 10,
+        marginLeft: 0, // Add margin to separate text and icon
     },
 });
 
