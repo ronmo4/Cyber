@@ -49,21 +49,21 @@ const LawyerItem = ({ lawyer }) => (
       <Text style={styles.role}>{lawyer.role}</Text>
       <Text style={styles.phone}>{lawyer.phone}</Text>
     </View>
+    
   </View>
 );
 
 const AdvertisementScreen = () => {
   return (
     <View>
-    <Text style={styles.title}>עורכי הדין בתחום: </Text>
-    <FlatList
-      data={lawyers}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) => <LawyerItem lawyer={item} />}
-      contentContainerStyle={styles.list}
-    />
+      <Text style={styles.title}>עורכי הדין בתחום</Text>
+      <FlatList
+        data={lawyers}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <LawyerItem lawyer={item} />}
+        contentContainerStyle={styles.list}
+      />
     </View>
-
   );
 };
 
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     color: '#333', 
   },
   cardContainer: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     backgroundColor: '#fff',
     marginBottom: 10,
     borderRadius: 8,
@@ -96,22 +96,27 @@ const styles = StyleSheet.create({
     height: 70,
     borderRadius: 35,
     margin: 10,
+    marginLeft: 0, // Adjusted to align image correctly
   },
   detailsContainer: {
     flex: 1,
+    paddingRight: 10,
   },
   name: {
     fontWeight: 'bold',
     fontSize: 16,
+    textAlign: 'right',
   },
   role: {
     color: '#666',
     fontSize: 14,
+    textAlign: 'right',
   },
   phone: {
     color: '#666',
     fontSize: 14,
     marginTop: 4,
+    textAlign: 'right',
   },
 });
 
