@@ -31,7 +31,7 @@ const navigation = useNavigation();
                 />
                 <CustomButton
                     text="שאל את הצ'אט"
-                    onPress={goToChetBox}
+                    onPress={goToChatbot}
                     bgColor="#FBC02D" 
                     fgColor="#ffffff"
                     iconName="message-text-outline"

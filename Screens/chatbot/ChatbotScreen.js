@@ -9,7 +9,6 @@ import {
   ScrollView,
 } from 'react-native';
 import { chatbotHistory } from '../../data/traffic_law_data';
-import { useNavigation } from '@react-navigation/native';
 
 const {
   GoogleGenerativeAI,
